@@ -1,9 +1,9 @@
 ## Grill My Code
 
-> **Generated:** 2026-05-04 19:59:53 UTC
-> **Commits reviewed:** `4fdc55e` → `88d8c07`
+> **Generated:** 2026-05-04 21:05:38 UTC
+> **Commits reviewed:** `4fdc55e` → `89c4d9a`
 
-> **Files assessed:** `README.md`
+> **Files assessed:** `README.md`, `array-functions.js`
 
 ---
 
@@ -11,327 +11,359 @@
 
 _These questions check your knowledge of what specific parts of your code do._
 
-1. **`README.md`**
+1. **`array-functions.js`**
    ```
-   [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23815045)
+   productsArray.every(product => product.inStock === true);
    ```
-   What does clicking the Codespaces badge in the Markdown header do for users of this repository?
+   What does the `isEveryProductInStock` function return when all products in `productsArray` have `inStock` set to `true`?
 
-2. **`README.md`**
+2. **`array-functions.js`**
    ```
-   This repository contains a GitHub Actions workflow that automatically analyses submitted code and generates comprehension questions using AI based on the code submitted.
+   productsArray.filter(product => product.price > minPrice);
    ```
-   What is the main automated feature described in the first paragraph of the README?
+   What is the output of `getProductsAbovePrice` if no products in `productsArray` have a price above `minPrice`?
 
-3. **`README.md`**
+3. **`array-functions.js`**
    ```
-   When you push a code file, the **Grill My Code** action will examine your changes and create a GitHub Issue containing questions about the code you submitted.
+   productsArray.find(product => product.price > threshold);
    ```
-   What event triggers the question-generation workflow according to this statement?
+   What value does `findFirstExpensiveProduct` return when no product's price exceeds `threshold`?
 
-4. **`README.md`**
+4. **`array-functions.js`**
    ```
-   1. **Workflow validation** — Confirm that the action runs successfully end-to-end: the workflow triggers on push, the AI model is called, and a GitHub Issue containing comprehension questions is generated without errors.
+   Number((product.price * multiplier).toFixed(2))
    ```
-   What is the first listed goal of the pilot in the Purpose section?
+   What datatype is returned for the `price` property in the objects produced by `applyDiscountToAllProducts`?
 
-5. **`README.md`**
+5. **`array-functions.js`**
    ```
-   2. **Question quality** — Evaluate whether the generated questions accurately reflect the code that was submitted.
+   productsArray.reduce((sum, product) => {
+       return sum + product.price;
+   }, 0);
    ```
-   What is the second listed goal of the pilot?
+   What does `getTotalPrice` return if `productsArray` is empty?
 
-6. **`README.md`**
+6. **`array-functions.js`**
    ```
-   The workflow (`.github/workflows/grill-my-code.yml`) triggers on every `push` to the repository.
+   if (!categories.includes(product.category)) {
+       categories.push(product.category);
+   }
    ```
-   Which workflow file is responsible for running the question-generation process?
+   What is the purpose of checking `!categories.includes(product.category)` within `getUniqueCategories`?
 
-7. **`README.md`**
+7. **`array-functions.js`**
    ```
-   4. Sends the stripped diff to an AI model (currently set to `gpt-4.1` via GitHub Models).
+   grouped[product.category].push(product.name);
    ```
-   What AI model is used for generating questions according to the workflow description?
+   What is the structure of the object returned by `groupProductsByCategory`?
 
-8. **`README.md`**
+8. **`array-functions.js`**
    ```
-   5. Opens a **GitHub Issue** in this repository containing up to 50 comprehension questions about your code.
+   [...productsArray].sort((a, b) => a.price - b.price);
    ```
-   What does the workflow do after generating questions?
+   What effect does the spread operator (`...productsArray`) have before sorting in `sortProductsByPrice`?
 
-9. **`README.md`**
+9. **`array-functions.js`**
    ```
-   6. Writes a copy of the questions to a Markdown file inside a `_assessment/` folder and commits it back to the repository.
+   productsArray.flatMap(product => product.tags);
    ```
-   Where is the generated set of questions stored besides the GitHub Issue?
+   What type of array is returned by `getAllTagsFlat`?
 
-10. **`README.md`**
+10. **`array-functions.js`**
     ```
-    > The workflow skips the initial starter-code commit by default, so only **your** code changes are assessed — not any template boilerplate.
+    const chunkIndex = Math.floor(index / chunkSize);
     ```
-    What kind of code changes are excluded from analysis by default?
+    What does `chunkProducts` do with the `chunkIndex` value?
 
-11. **`README.md`**
+11. **`array-functions.js`**
     ```
-    NOTE: If you'd prefer, you can clone to your machine and work from there. The codespace is available for ease of coding and testing.
+    inStock: false,
     ```
-    What alternative does the README offer if a user does not want to use Codespaces?
+    What is the value of the `inStock` property for the product with `name: "Mouse"` in the `products` array?
 
-12. **`README.md`**
+12. **`array-functions.js`**
     ```
-    You can add a file in **any language** — JavaScript, Java, C#, etc. The action analyses whatever code you push.
+    tags: ["school", "office"]
     ```
-    What languages does the workflow support for code analysis?
+    Which product in the `products` array has the tags `["school", "office"]`?
 
-13. **`README.md`**
+13. **`array-functions.js`**
     ```
-    For this pilot, you can work **directly on the `main` branch** — no feature branches are needed.
+    console.log("Is every product in stock?");
+    console.log(isEveryProductInStock(products));
     ```
-    Which branch are users instructed to work on for the pilot?
+    What does the second console log statement output if any product in `products` is out of stock?
 
-14. **`README.md`**
+14. **`array-functions.js`**
     ```
-    Each push triggers the workflow and generates a **new, updated set of questions** reflecting your latest additions and/or modifications.
+    console.log("Products above 30:");
+    console.log(getProductsAbovePrice(products, 30));
     ```
-    What happens when a user pushes new changes to the repository?
+    What does the second console log statement display after calling `getProductsAbovePrice(products, 30)`?
 
-15. **`README.md`**
+15. **`array-functions.js`**
     ```
-    The questions are also saved as a Markdown file in the `_assessment/` folder in this repository — it is an exact copy of the content posted to the Issue.
+    console.log("Products chunked by size 2:");
+    console.log(chunkProducts(products, 2));
     ```
-    What is the relationship between the questions in the Issue and those in `_assessment/`?
-
-16. **`README.md`**
-    ```
-    | Requirement | Details |
-    |---|---|
-    | GitHub Models access | The workflow uses `github_token` with `models: read` permission — no extra setup needed |
-    | Issues enabled | GitHub Issues must be enabled on this repository (they are by default) |
-    ```
-    What two requirements are listed for the workflow to function?
-
-17. **`README.md`**
-    ```
-    The `GITHUB_TOKEN` provided automatically by GitHub Actions has all the permissions the workflow needs.
-    ```
-    What is used for authentication in the workflow?
-
-18. **`README.md`**
-    ```
-    | Setting | Value | Description |
-    |---|---|---|
-    | `ai_model` | `gpt-4.1` | AI model used to generate questions |
-    | `num_questions` | `50` | Number of questions generated per push |
-    | `post_issue` | `true` | Questions are posted as a GitHub Issue |
-    | `skip_initial_commit` | `true` (default) | Only your code changes are assessed |
-    ```
-    What is the default number of questions generated per push?
-
-19. **`README.md`**
-    ```
-    To change these settings, edit `.github/workflows/grill-my-code.yml`.
-    ```
-    Where should users go to change workflow settings?
-
-20. **`README.md`**
-    ```
-    git pull
-    ```
-    What command is suggested for updating the local `_assessment/` folder?
+    How many chunks are produced when `chunkProducts` is called with `chunkSize` of 2 on the `products` array?
 
 ## Comprehension
 
 _These questions ask you to explain why or how particular choices in your code work the way they do._
 
-21. **`README.md`**
+16. **`array-functions.js`**
     ```
-    Strips any comments from the code before analysis, so the AI assesses the code itself rather than any hints or explanations left in comments.
+    return productsArray.every(product => product.inStock === true);
     ```
-    Why does the workflow remove comments from the code before sending it to the AI model?
+    Why did you choose the `every` method in `isEveryProductInStock` instead of iterating with a loop?
 
-22. **`README.md`**
+17. **`array-functions.js`**
     ```
-    The workflow skips the initial starter-code commit by default, so only **your** code changes are assessed — not any template boilerplate. However this can be overridden.
+    return productsArray.filter(product => product.price > minPrice);
     ```
-    Why is it important for the workflow to skip the initial starter-code commit during analysis?
+    How does the use of the `filter` function help `getProductsAbovePrice` achieve its purpose?
 
-23. **`README.md`**
+18. **`array-functions.js`**
     ```
-    No secrets or API keys need to be configured manually.
+    return productsArray.find(product => product.price > threshold);
     ```
-    How does the workflow avoid requiring manual API key configuration?
+    Why might `findFirstExpensiveProduct` return `undefined` in some cases?
 
-24. **`README.md`**
+19. **`array-functions.js`**
     ```
-    The `GITHUB_TOKEN` provided automatically by GitHub Actions has all the permissions the workflow needs.
+    const multiplier = 1 - discountPercent / 100;
     ```
-    How does using `GITHUB_TOKEN` simplify the workflow setup for users?
+    How does the calculation of `multiplier` relate to applying a percentage discount in `applyDiscountToAllProducts`?
 
-25. **`README.md`**
+20. **`array-functions.js`**
     ```
-    Each push triggers the workflow and generates a **new, updated set of questions** reflecting your latest additions and/or modifications.
+    price: Number((product.price * multiplier).toFixed(2)),
     ```
-    How does the workflow ensure that questions are always relevant to the most recent code changes?
+    Why do you use `.toFixed(2)` followed by `Number(...)` for the price in the new object returned by `applyDiscountToAllProducts`?
 
-26. **`README.md`**
+21. **`array-functions.js`**
     ```
-    You can add a file in **any language** — JavaScript, Java, C#, etc. The action analyses whatever code you push.
+    return productsArray.reduce((sum, product) => {
+        return sum + product.price;
+    }, 0);
     ```
-    Why might supporting multiple languages be important for the workflow's intended audience?
+    How does the initial value `0` affect the result of `getTotalPrice`?
 
-27. **`README.md`**
+22. **`array-functions.js`**
     ```
-    Writes a copy of the questions to a Markdown file inside a `_assessment/` folder and commits it back to the repository.
+    if (!categories.includes(product.category)) {
+        categories.push(product.category);
+    }
     ```
-    How does storing questions in the `_assessment/` folder benefit users beyond the GitHub Issue?
+    Why is it necessary to check for inclusion before pushing a category in `getUniqueCategories`?
 
-28. **`README.md`**
+23. **`array-functions.js`**
     ```
-    Suggestions for improvements or new features are equally encouraged. The goal of this pilot is to learn as much as possible, so no observation is too small to share.
+    if (!grouped[product.category]) {
+        grouped[product.category] = [];
+    }
     ```
-    Why does the pilot encourage all feedback, even on small observations?
+    How does this conditional statement ensure the correct structure in `groupProductsByCategory`?
 
-29. **`README.md`**
+24. **`array-functions.js`**
     ```
-    If the questions feel generic, off-topic, or miss important aspects of the code, please note that when reporting back.
+    [...productsArray].sort((a, b) => a.price - b.price);
     ```
-    How does user feedback on question quality contribute to the project?
+    Why did you copy the array using the spread operator before sorting in `sortProductsByPrice`?
 
-30. **`README.md`**
+25. **`array-functions.js`**
     ```
-    The questions are also saved as a Markdown file in the `_assessment/` folder in this repository — it is an exact copy of the content posted to the Issue.
+    productsArray.flatMap(product => product.tags);
     ```
-    Why do you think it is valuable to have an exact copy of the questions in both the Issue and a Markdown file?
+    How does `flatMap` differ from `map` in `getAllTagsFlat`?
+
+26. **`array-functions.js`**
+    ```
+    const chunkIndex = Math.floor(index / chunkSize);
+    ```
+    Why do you use `Math.floor(index / chunkSize)` to determine the chunk index in `chunkProducts`?
+
+27. **`array-functions.js`**
+    ```
+    return productsArray.reduce((chunks, product, index) => {
+        // ...
+    }, []);
+    ```
+    How does the `reduce` function build the array of chunks in `chunkProducts`?
+
+28. **`array-functions.js`**
+    ```
+    id: product.id,
+    name: product.name,
+    category: product.category,
+    price: Number((product.price * multiplier).toFixed(2)),
+    inStock: product.inStock,
+    tags: product.tags
+    ```
+    Why did you include all these properties in the new product object returned by `applyDiscountToAllProducts`?
+
+29. **`array-functions.js`**
+    ```
+    console.log("Unique categories:");
+    console.log(getUniqueCategories(products));
+    ```
+    How does `getUniqueCategories` ensure there are no duplicate categories in its output?
+
+30. **`array-functions.js`**
+    ```
+    console.log("Products sorted by price:");
+    console.log(sortProductsByPrice(products));
+    ```
+    Why does `sortProductsByPrice` produce a new sorted array instead of sorting the original `products` array in place?
 
 ## Analysis
 
-_These questions require you to trace execution, reason about logic, or identify issues with your code._
+_These questions ask you to trace execution, reason about logic, or identify issues in the code._
 
-31. **`README.md`**
+31. **`array-functions.js`**
     ```
-    2. Computes a diff of the files you changed since the starter code was first committed.
+    productsArray.every(product => product.inStock === true);
     ```
-    How might computing a diff help the workflow generate questions tailored to your own code rather than the template?
+    What would happen in `isEveryProductInStock` if a product object was missing the `inStock` property?
 
-32. **`README.md`**
+32. **`array-functions.js`**
     ```
-    4. Sends the stripped diff to an AI model (currently set to `gpt-4.1` via GitHub Models).
+    productsArray.filter(product => product.price > minPrice);
     ```
-    What could happen if the diff sent to the AI model included comments, and how would that affect the questions generated?
+    How would the output of `getProductsAbovePrice` change if `minPrice` was set to a negative value?
 
-33. **`README.md`**
+33. **`array-functions.js`**
     ```
-    5. Opens a **GitHub Issue** in this repository containing up to 50 comprehension questions about your code.
+    productsArray.find(product => product.price > threshold);
     ```
-    What potential problems could arise if the workflow failed to open a GitHub Issue after generating questions?
+    If multiple products have a price above `threshold`, which product does `findFirstExpensiveProduct` return and why?
 
-34. **`README.md`**
+34. **`array-functions.js`**
     ```
-    6. Writes a copy of the questions to a Markdown file inside a `_assessment/` folder and commits it back to the repository.
+    price: Number((product.price * multiplier).toFixed(2)),
     ```
-    What are the consequences if the workflow fails to commit the Markdown file to the `_assessment/` folder?
+    What are the possible consequences of using `.toFixed(2)` for prices that already have more than two decimal places?
 
-35. **`README.md`**
+35. **`array-functions.js`**
     ```
-    The workflow uses `github_token` with `models: read` permission — no extra setup needed
+    return sum + product.price;
     ```
-    If the `models: read` permission was missing from `github_token`, what part of the workflow would be affected?
+    What would happen if a product in `productsArray` had its `price` property as a string instead of a number in `getTotalPrice`?
 
-36. **`README.md`**
+36. **`array-functions.js`**
     ```
-    Issues enabled | GitHub Issues must be enabled on this repository (they are by default)
+    if (!categories.includes(product.category)) {
+        categories.push(product.category);
+    }
     ```
-    What would be the result if Issues were disabled in the repository during workflow execution?
+    How does this logic in `getUniqueCategories` behave if `product.category` is `undefined`?
 
-37. **`README.md`**
+37. **`array-functions.js`**
     ```
-    | Setting | Value | Description |
-    |---|---|---|
-    | `num_questions` | `50` | Number of questions generated per push |
+    grouped[product.category].push(product.name);
     ```
-    What might happen if you reduce `num_questions` to a much lower value in the workflow configuration?
+    How would `groupProductsByCategory` handle products with the same category?
 
-38. **`README.md`**
+38. **`array-functions.js`**
     ```
-    | `skip_initial_commit` | `true` (default) | Only your code changes are assessed |
+    [...productsArray].sort((a, b) => a.price - b.price);
     ```
-    What would be the impact of changing `skip_initial_commit` to `false` in the workflow?
+    What would be the result if some products had identical prices in `sortProductsByPrice`?
 
-39. **`README.md`**
+39. **`array-functions.js`**
     ```
-    To change these settings, edit `.github/workflows/grill-my-code.yml`.
+    productsArray.flatMap(product => product.tags);
     ```
-    What risks could there be if a user edited this workflow file incorrectly?
+    What happens if a product's `tags` property is not an array in `getAllTagsFlat`?
 
-40. **`README.md`**
+40. **`array-functions.js`**
     ```
-    The questions are also saved as a Markdown file in the `_assessment/` folder in this repository — it is an exact copy of the content posted to the Issue.
+    if (!chunks[chunkIndex]) {
+        chunks[chunkIndex] = [];
+    }
     ```
-    If the Markdown file and the Issue content ever diverged, what confusion could occur for users?
+    What issue might arise in `chunkProducts` if `chunkSize` is zero or negative?
+
+41. **`array-functions.js`**
+    ```
+    return productsArray.reduce((chunks, product, index) => {
+        // ...
+    }, []);
+    ```
+    How does the use of `index` in `reduce` help in dividing the array into chunks?
+
+42. **`array-functions.js`**
+    ```
+    id: 1,
+    name: "Keyboard",
+    category: "electronics",
+    price: 89.99,
+    inStock: true,
+    tags: ["office", "usb"]
+    ```
+    If the `products` array was missing one of these properties from a product, how would it affect the functions using `products`?
+
+43. **`array-functions.js`**
+    ```
+    console.log("First product above 50:");
+    console.log(findFirstExpensiveProduct(products, 50));
+    ```
+    What is logged if no products are priced above 50?
+
+44. **`array-functions.js`**
+    ```
+    console.log("Products after 10% discount:");
+    console.log(applyDiscountToAllProducts(products, 10));
+    ```
+    How is the price of each product affected after applying a 10% discount with `applyDiscountToAllProducts`?
+
+45. **`array-functions.js`**
+    ```
+    console.log("All tags flattened:");
+    console.log(getAllTagsFlat(products));
+    ```
+    How does `getAllTagsFlat` handle repeated tags across different products?
+
+46. **`array-functions.js`**
+    ```
+    console.log("Products chunked by size 2:");
+    console.log(chunkProducts(products, 2));
+    ```
+    How does the chunking logic ensure all products are included in the result even if the array length isn't divisible by `chunkSize`?
 
 ## Evaluation
 
-_These questions ask you to judge design decisions, tradeoffs, or rationale._
+_These questions ask you to judge design decisions, tradeoffs, or rationale behind the code._
 
-41. **`README.md`**
+47. **`array-functions.js`**
     ```
-    Strips any comments from the code before analysis, so the AI assesses the code itself rather than any hints or explanations left in comments.
+    (() => {
+        // ...all functions and code...
+    })();
     ```
-    What are the advantages and disadvantages of stripping comments from the code before analysis for AI-generated questions?
+    What are the benefits and drawbacks of wrapping all code in an Immediately Invoked Function Expression (IIFE)?
 
-42. **`README.md`**
+48. **`array-functions.js`**
     ```
-    This action is at a **very early stage of development**, and all feedback is highly welcomed — not just on question quality, but on any aspect of the implementation: workflow behaviour, output format, Issue presentation, edge cases you encounter, or anything that feels off.
+    const getUniqueCategories = (productsArray) => {
+        // ...
+    };
     ```
-    Why might it be beneficial to solicit feedback on aspects beyond just question quality at this stage?
+    Why did you choose an array for storing unique categories instead of a Set in `getUniqueCategories`?
 
-43. **`README.md`**
+49. **`array-functions.js`**
     ```
-    The workflow skips the initial starter-code commit by default, so only **your** code changes are assessed — not any template boilerplate.
+    return [...productsArray].sort((a, b) => a.price - b.price);
     ```
-    What are the tradeoffs of skipping template code versus including it in the analysis for question generation?
+    How does creating a new sorted array support immutability, and what are the tradeoffs compared to sorting in place?
 
-44. **`README.md`**
+50. **`array-functions.js`**
     ```
-    Each push triggers the workflow and generates a **new, updated set of questions** reflecting your latest additions and/or modifications.
+    console.log("Products sorted by price:");
+    console.log(sortProductsByPrice(products));
     ```
-    What are the pros and cons of triggering the workflow on every push rather than only on completed features?
-
-45. **`README.md`**
-    ```
-    Writes a copy of the questions to a Markdown file inside a `_assessment/` folder and commits it back to the repository.
-    ```
-    What are the benefits and drawbacks of storing generated questions both in a GitHub Issue and a Markdown file within the repository?
-
-46. **`README.md`**
-    ```
-    No secrets or API keys need to be configured manually.
-    ```
-    How does avoiding manual secrets/API key setup affect the security and usability of the workflow?
-
-47. **`README.md`**
-    ```
-    You can add a file in **any language** — JavaScript, Java, C#, etc. The action analyses whatever code you push.
-    ```
-    What challenges might arise in supporting code analysis for any language in the workflow?
-
-48. **`README.md`**
-    ```
-    For this pilot, you can work **directly on the `main` branch** — no feature branches are needed.
-    ```
-    What are the implications of allowing direct commits to the `main` branch for this pilot?
-
-49. **`README.md`**
-    ```
-    Suggestions for improvements or new features are equally encouraged. The goal of this pilot is to learn as much as possible, so no observation is too small to share.
-    ```
-    How might encouraging suggestions for new features impact the direction and outcome of the pilot?
-
-50. **`README.md`**
-    ```
-    The questions are also saved as a Markdown file in the `_assessment/` folder in this repository — it is an exact copy of the content posted to the Issue.
-    ```
-    In what situations might having a local copy of questions in the repository be preferable to relying on the GitHub Issue alone?
+    What considerations might influence the decision to sort products by price ascending as opposed to descending?
 
 ---
 
