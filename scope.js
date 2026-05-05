@@ -66,7 +66,38 @@
 	shadowingExample();
 	console.log("5) Shadowing (outside) ->", role);
 
+	// 6) Closures: function remembers variables from where it was created.
+	function createCounter() {
+		let count = 0;
 
+		return function increment() {
+			count += 1;
+			return count;
+		};
+	}
+
+	const counterA = createCounter();
+	const counterB = createCounter();
+
+	console.log("6) Closure counterA ->", counterA()); // 1
+	console.log("6) Closure counterA ->", counterA()); // 2
+	console.log("6) Closure counterB ->", counterB()); // 1 (separate scope)
+
+	// 7) Scope in loops: let creates a new binding each iteration.
+	const withVar = [];
+	for (var i = 0; i < 3; i++) {
+		withVar.push(() => i);
+	}
+
+	const withLet = [];
+	for (let j = 0; j < 3; j++) {
+		withLet.push(() => j);
+	}
+
+	console.log("7) Loop scope with var ->", withVar[0](), withVar[1](), withVar[2]()); // 3 3 3
+	console.log("7) Loop scope with let ->", withLet[0](), withLet[1](), withLet[2]()); // 0 1 2
+
+	console.log("===== End of Examples =====");
 
 	
 })()
