@@ -54,6 +54,19 @@
 
 	outerLexical();
 
+	
+	// 5) Shadowing: inner scope variable with same name hides outer one.
+	const role = "student";
+
+	function shadowingExample() {
+		const role = "mentor";
+		console.log("5) Shadowing (inside) ->", role);
+	}
+
+	shadowingExample();
+	console.log("5) Shadowing (outside) ->", role);
+
+
 
 	
 })()
