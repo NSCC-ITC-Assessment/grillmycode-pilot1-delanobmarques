@@ -1,7 +1,7 @@
 ## Grill My Code
 
-> **Generated:** 2026-05-05 11:39:03 UTC
-> **Commits reviewed:** `40c4b0d` → `303f870`
+> **Generated:** 2026-05-05 11:44:16 UTC
+> **Commits reviewed:** `40c4b0d` → `e94a77d`
 
 > **Files assessed:** `array-functions.js`, `scope.js`
 
@@ -15,330 +15,300 @@ _These questions check your knowledge of what specific parts of your code do._
    ```
    productsArray.every(product => product.inStock === true);
    ```
-   What does the function `isEveryProductInStock` return if every product in `productsArray` has `inStock` set to `true`?
-
+   What does the `isEveryProductInStock` function return if all products in `productsArray` have `inStock` set to `true`?
 2. **`array-functions.js`**
    ```
    productsArray.filter(product => product.price > minPrice);
    ```
-   What does `getProductsAbovePrice` return when `minPrice` is set to `30`?
-
+   What does `getProductsAbovePrice` return when called with a `minPrice` of 30?
 3. **`array-functions.js`**
    ```
    productsArray.find(product => product.price > threshold);
    ```
-   What is the output of `findFirstExpensiveProduct` if no product’s price exceeds `threshold`?
-
+   What is the result of `findFirstExpensiveProduct(products, 50)` based on the provided `products` array?
 4. **`array-functions.js`**
    ```
    price: Number((product.price * multiplier).toFixed(2)),
    ```
-   What is the new `price` property in each object returned by `applyDiscountToAllProducts`?
-
+   In `applyDiscountToAllProducts`, what does the `price` property represent for each product in the returned array?
 5. **`array-functions.js`**
    ```
-   return sum + product.price;
+   return productsArray.reduce((sum, product) => {
+       return sum + product.price;
+   }, 0);
    ```
-   What does `getTotalPrice` accumulate in its returned value?
-
+   What value does `getTotalPrice(products)` return for the provided sample `products` array?
 6. **`array-functions.js`**
    ```
    if (!categories.includes(product.category)) {
        categories.push(product.category);
    }
    ```
-   What does `getUniqueCategories` include in its returned array?
-
+   What is the purpose of checking `!categories.includes(product.category)` in `getUniqueCategories`?
 7. **`array-functions.js`**
    ```
-   if (!grouped[product.category]) {
-       grouped[product.category] = [];
-   }
    grouped[product.category].push(product.name);
    ```
-   What does `groupProductsByCategory` store as the values in its returned object?
-
+   In `groupProductsByCategory`, what is stored in the array at `grouped[product.category]` for each category?
 8. **`array-functions.js`**
    ```
-   [...productsArray].sort((a, b) => a.price - b.price);
+   return [...productsArray].sort((a, b) => a.price - b.price);
    ```
-   What does `sortProductsByPrice` return in terms of order and structure?
-
+   What does `sortProductsByPrice` return, and how is the returned array ordered?
 9. **`array-functions.js`**
    ```
-   productsArray.flatMap(product => product.tags);
+   return productsArray.flatMap(product => product.tags);
    ```
-   What does `getAllTagsFlat` return for the given `products` array?
-
+   What kind of array does `getAllTagsFlat` produce from the `products` array?
 10. **`array-functions.js`**
     ```
     const chunkIndex = Math.floor(index / chunkSize);
     ```
-    What does `chunkProducts` use `chunkIndex` for when building the returned array?
-
+    In `chunkProducts`, what does `chunkIndex` represent for each product?
 11. **`array-functions.js`**
     ```
-    id: 1,
-    name: "Keyboard",
-    category: "electronics",
+    const products = [
+        {
+            id: 1,
+            name: "Keyboard",
+            category: "electronics",
+            price: 89.99,
+            inStock: true,
+            tags: ["office", "usb"]
+        },
+        // ...
+    ];
     ```
-    What are the properties and values of the first object in the `products` array?
-
+    What kind of data structure is `products`, and what does each element represent?
 12. **`array-functions.js`**
     ```
-    console.log(isEveryProductInStock(products));
-    ```
-    What does this `console.log` statement print for the provided `products` data?
-
-13. **`array-functions.js`**
-    ```
+    console.log("Products above 30:");
     console.log(getProductsAbovePrice(products, 30));
     ```
-    What is the output of this statement for the current `products` array?
-
-14. **`array-functions.js`**
+    What is outputted when `getProductsAbovePrice(products, 30)` is called using the sample data?
+13. **`array-functions.js`**
     ```
-    console.log(findFirstExpensiveProduct(products, 50));
-    ```
-    What does this log print for the supplied `products` array?
-
-15. **`array-functions.js`**
-    ```
-    console.log(applyDiscountToAllProducts(products, 10));
-    ```
-    What is the result of this statement for all products with a 10% discount applied?
-
-16. **`array-functions.js`**
-    ```
-    console.log(getTotalPrice(products));
-    ```
-    What does this log statement return for the given `products`?
-
-17. **`array-functions.js`**
-    ```
-    console.log(getUniqueCategories(products));
-    ```
-    What does this statement output for the provided `products`?
-
-18. **`array-functions.js`**
-    ```
-    console.log(groupProductsByCategory(products));
-    ```
-    What does the log statement show for the `products` array grouped by category?
-
-19. **`array-functions.js`**
-    ```
-    console.log(sortProductsByPrice(products));
-    ```
-    What does this statement display regarding the order of products?
-
-20. **`array-functions.js`**
-    ```
-    console.log(getAllTagsFlat(products));
-    ```
-    What is the result of flattening all tags from the `products` array?
-
-21. **`array-functions.js`**
-    ```
+    console.log("Products chunked by size 2:");
     console.log(chunkProducts(products, 2));
     ```
-    What does this log statement output for chunk size of 2?
-
-22. **`scope.js`**
+    How many chunks does `chunkProducts(products, 2)` produce for the sample array?
+14. **`scope.js`**
     ```
     const appName = "Scope Lab";
     ```
-    What is the value of `appName` used throughout `scope.js`?
-
-23. **`scope.js`**
+    What is the value of `appName` throughout the file?
+15. **`scope.js`**
     ```
     function printGlobal() {
         console.log("1) Global scope ->", appName);
     }
     ```
-    What does the `printGlobal` function output when called?
-
-24. **`scope.js`**
+    What does `printGlobal` log to the console when called?
+16. **`scope.js`**
     ```
     var functionOnlyVar = "I exist only inside this function";
-    const functionOnlyConst = "Me too";
     ```
-    What are the values of `functionOnlyVar` and `functionOnlyConst` inside `functionScopeExample`?
-
-25. **`scope.js`**
+    In `functionScopeExample`, where is `functionOnlyVar` accessible?
+17. **`scope.js`**
     ```
-    console.log("2) Function scope (inside) ->", functionOnlyVar, "|", functionOnlyConst);
-    ```
-    What does this `console.log` statement print inside `functionScopeExample`?
-
-26. **`scope.js`**
-    ```
-    var notBlockScoped = "var escapes the block";
     let blockScopedLet = "let stays in the block";
     const blockScopedConst = "const stays in the block";
     ```
-    Which variables are accessible outside the block in `blockScopeExample`?
-
-27. **`scope.js`**
+    Within `blockScopeExample`, what is the scope of `blockScopedLet` and `blockScopedConst`?
+18. **`scope.js`**
     ```
-    console.log("3) Block scope (inside) ->", blockScopedLet, "|", blockScopedConst);
+    var notBlockScoped = "var escapes the block";
     ```
-    What values are printed inside the block of `blockScopeExample`?
-
-28. **`scope.js`**
-    ```
-    console.log("3) var outside block ->", notBlockScoped);
-    ```
-    What does this statement print after the block in `blockScopeExample`?
-
-29. **`scope.js`**
+    Why can `notBlockScoped` be logged outside the block in `blockScopeExample`?
+19. **`scope.js`**
     ```
     const outerValue = "from outer function";
     ```
-    What is the value of `outerValue` within `outerLexical`?
-
-30. **`scope.js`**
+    What value is accessible to `innerLexical` from its enclosing scope?
+20. **`scope.js`**
     ```
-    const innerValue = "from inner function";
+    const role = "student";
     ```
-    What is the value of `innerValue` inside `innerLexical`?
-
-31. **`scope.js`**
-    ```
-    console.log("4) Lexical scope ->", outerValue, "&", innerValue);
-    ```
-    What is printed by this statement within `innerLexical`?
+    What is the value of `role` outside the `shadowingExample` function?
 
 ## Comprehension
 
 _These questions ask you to explain why or how particular choices in your code work the way they do._
 
-32. **`array-functions.js`**
+21. **`array-functions.js`**
     ```
     return productsArray.every(product => product.inStock === true);
     ```
-    Why did you choose `.every` for `isEveryProductInStock` instead of `.some` or `.filter`?
-
-33. **`array-functions.js`**
+    Why does `isEveryProductInStock` use the `.every` method instead of `.filter`?
+22. **`array-functions.js`**
     ```
     return productsArray.filter(product => product.price > minPrice);
     ```
-    How does the `.filter` method determine which products to include in the result of `getProductsAbovePrice`?
-
-34. **`array-functions.js`**
+    How does `getProductsAbovePrice` determine which products to include in its result?
+23. **`array-functions.js`**
     ```
     return productsArray.find(product => product.price > threshold);
     ```
-    Why does `findFirstExpensiveProduct` potentially return `undefined`?
-
-35. **`array-functions.js`**
+    Why does `findFirstExpensiveProduct` return only one product rather than an array?
+24. **`array-functions.js`**
     ```
     price: Number((product.price * multiplier).toFixed(2)),
     ```
-    How does the calculation of `price` in `applyDiscountToAllProducts` ensure prices are rounded to two decimals?
-
-36. **`array-functions.js`**
+    How does `applyDiscountToAllProducts` ensure the discounted price has only two decimal places?
+25. **`array-functions.js`**
     ```
     return productsArray.reduce((sum, product) => {
         return sum + product.price;
     }, 0);
     ```
-    Why did you initialize the `reduce` accumulator to `0` in `getTotalPrice`?
-
-37. **`array-functions.js`**
+    Why is the initial value for `reduce` set to `0` in `getTotalPrice`?
+26. **`array-functions.js`**
     ```
     if (!categories.includes(product.category)) {
         categories.push(product.category);
     }
     ```
-    How does the check for `.includes` prevent duplicates in `getUniqueCategories`?
-
-38. **`array-functions.js`**
+    How does this check in `getUniqueCategories` prevent duplicate categories in the result?
+27. **`array-functions.js`**
     ```
     grouped[product.category].push(product.name);
     ```
-    Why did you choose to group by `category` and store only `product.name` in `groupProductsByCategory`?
-
-39. **`array-functions.js`**
+    Why does `groupProductsByCategory` store product names rather than the whole product object?
+28. **`array-functions.js`**
     ```
-    [...productsArray].sort((a, b) => a.price - b.price);
+    return [...productsArray].sort((a, b) => a.price - b.price);
     ```
-    Why did you use the spread operator `[...]` before sorting in `sortProductsByPrice`?
-
-40. **`array-functions.js`**
+    Why does `sortProductsByPrice` spread `productsArray` into a new array before sorting?
+29. **`array-functions.js`**
     ```
-    productsArray.flatMap(product => product.tags);
+    return productsArray.flatMap(product => product.tags);
     ```
-    How does `.flatMap` differ from `.map` in the behavior of `getAllTagsFlat`?
-
-41. **`array-functions.js`**
+    How does `flatMap` differ from `map` in the context of `getAllTagsFlat`?
+30. **`array-functions.js`**
     ```
     const chunkIndex = Math.floor(index / chunkSize);
     ```
-    How does the calculation of `chunkIndex` ensure products are divided into chunks of the desired size in `chunkProducts`?
-
-42. **`array-functions.js`**
+    How does `chunkProducts` use `chunkIndex` to divide the array into sub-arrays?
+31. **`scope.js`**
     ```
-    return productsArray.reduce((chunks, product, index) => {
-        //...
-    }, []);
+    function printGlobal() {
+        console.log("1) Global scope ->", appName);
+    }
     ```
-    Why did you use `.reduce` for chunking instead of a traditional loop in `chunkProducts`?
-
-43. **`scope.js`**
-    ```
-    const appName = "Scope Lab";
-    ```
-    How does the declaration of `appName` affect its accessibility in other functions within the IIFE?
-
-44. **`scope.js`**
+    How does `printGlobal` access `appName` from outside its own scope?
+32. **`scope.js`**
     ```
     var functionOnlyVar = "I exist only inside this function";
-    const functionOnlyConst = "Me too";
     ```
-    How does the use of `var` and `const` inside `functionScopeExample` demonstrate differences in scope?
-
-45. **`scope.js`**
+    How is the scope of `functionOnlyVar` determined in `functionScopeExample`?
+33. **`scope.js`**
     ```
     let blockScopedLet = "let stays in the block";
     const blockScopedConst = "const stays in the block";
     ```
-    Why are `blockScopedLet` and `blockScopedConst` not accessible outside the block?
-
-46. **`scope.js`**
+    Why are `blockScopedLet` and `blockScopedConst` not accessible outside the `if` block?
+34. **`scope.js`**
     ```
     var notBlockScoped = "var escapes the block";
     ```
-    How does using `var` here illustrate its behavior relative to block scope?
-
-47. **`scope.js`**
+    Why does declaring `notBlockScoped` with `var` allow it to be used after the block ends?
+35. **`scope.js`**
     ```
     function innerLexical() {
         const innerValue = "from inner function";
         console.log("4) Lexical scope ->", outerValue, "&", innerValue);
     }
     ```
-    How does `innerLexical` access `outerValue` from `outerLexical`?
+    How does `innerLexical` access `outerValue` from its parent function?
+36. **`scope.js`**
+    ```
+    const role = "student";
+    ```
+    Why does the value of `role` change inside `shadowingExample`?
+37. **`scope.js`**
+    ```
+    const role = "mentor";
+    ```
+    How does the declaration of `role` inside `shadowingExample` affect the value seen inside the function?
 
+## Analysis
+
+_These questions ask you to trace execution, reason about logic, or identify issues._
+
+38. **`array-functions.js`**
+    ```
+    productsArray.every(product => product.inStock === true);
+    ```
+    What happens if `productsArray` is empty when calling `isEveryProductInStock`?
+39. **`array-functions.js`**
+    ```
+    productsArray.filter(product => product.price > minPrice);
+    ```
+    If all products have a price less than or equal to `minPrice`, what is the result of `getProductsAbovePrice`?
+40. **`array-functions.js`**
+    ```
+    productsArray.find(product => product.price > threshold);
+    ```
+    What does `findFirstExpensiveProduct` return if no product meets the threshold condition?
+41. **`array-functions.js`**
+    ```
+    price: Number((product.price * multiplier).toFixed(2)),
+    ```
+    How would the price calculation behave if `discountPercent` is 0 or 100 in `applyDiscountToAllProducts`?
+42. **`array-functions.js`**
+    ```
+    return productsArray.reduce((sum, product) => {
+        return sum + product.price;
+    }, 0);
+    ```
+    If any product is missing the `price` property, how does `getTotalPrice` handle that product?
+43. **`array-functions.js`**
+    ```
+    grouped[product.category].push(product.name);
+    ```
+    What happens if two products in the array share the same category in `groupProductsByCategory`?
+44. **`array-functions.js`**
+    ```
+    return [...productsArray].sort((a, b) => a.price - b.price);
+    ```
+    How does `sortProductsByPrice` handle products with identical prices?
+45. **`array-functions.js`**
+    ```
+    return productsArray.flatMap(product => product.tags);
+    ```
+    If some products have an empty `tags` array, how does `getAllTagsFlat` behave?
+46. **`array-functions.js`**
+    ```
+    chunkProducts(products, 2)
+    ```
+    If `chunkSize` is larger than the number of products, what does `chunkProducts` return?
+47. **`scope.js`**
+    ```
+    var functionOnlyVar = "I exist only inside this function";
+    ```
+    What happens if you try to access `functionOnlyVar` outside of `functionScopeExample`?
 48. **`scope.js`**
     ```
-    (() => {
-        //...
-    })()
+    let blockScopedLet = "let stays in the block";
     ```
-    Why did you wrap all code in an immediately-invoked function expression (IIFE)?
-
+    What would happen if you tried to log `blockScopedLet` after the `if (true)` block ends in `blockScopeExample`?
 49. **`scope.js`**
     ```
-    console.log("===== JavaScript Scope Examples =====");
+    const role = "mentor";
     ```
-    Why did you include this log statement at the start of the script?
+    When the `shadowingExample` function runs, how does the value of `role` inside the function compare to outside?
+
+## Evaluation
+
+_These questions ask you to judge design decisions, tradeoffs, or rationale._
 
 50. **`array-functions.js`**
     ```
-    tags: product.tags
+    (() => {
+        // ... all function definitions and usage
+    })();
     ```
-    Why did you choose to preserve the `tags` property when creating discounted products in `applyDiscountToAllProducts`?
+    What are the advantages and disadvantages of wrapping the entire file in an immediately invoked function expression (IIFE)?
 
 ---
 
