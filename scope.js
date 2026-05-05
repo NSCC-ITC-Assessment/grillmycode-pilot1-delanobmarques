@@ -20,7 +20,40 @@
 	}
 
 	functionScopeExample();
-	console.log(functionOnlyVar); // Uncomment to see ReferenceError
+	//console.log(functionOnlyVar); // Uncomment to see ReferenceError
+
+	// 3) Block scope: let/const are block-scoped, var is not.
+	function blockScopeExample() {
+		if (true) {
+			var notBlockScoped = "var escapes the block";
+			let blockScopedLet = "let stays in the block";
+			const blockScopedConst = "const stays in the block";
+
+			console.log("3) Block scope (inside) ->", blockScopedLet, "|", blockScopedConst);
+		}
+
+		console.log("3) var outside block ->", notBlockScoped);
+		// console.log(blockScopedLet); // Uncomment to see ReferenceError
+		// console.log(blockScopedConst); // Uncomment to see ReferenceError
+	}
+
+	blockScopeExample();
+
+	// 4) Lexical scope: inner functions can read parent variables.
+	function outerLexical() {
+		const outerValue = "from outer function";
+
+		function innerLexical() {
+			const innerValue = "from inner function";
+			console.log("4) Lexical scope ->", outerValue, "&", innerValue);
+		}
+
+		innerLexical();
+		// console.log(innerValue); // Uncomment to see ReferenceError
+	}
+
+	outerLexical();
+
 
 	
 })()
